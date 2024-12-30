@@ -5,7 +5,6 @@ pipeline {
         stage('hello') {
             steps {
                 echo "Hello from Fafs first scripted pipeline"
-                whoami
             }
         }
     }
