@@ -14,10 +14,16 @@ pipeline {
                     ls -la
                     node --version
                     npm --version
-                    npm ci
-                    npm run build
+                    npm ci --unsafe-perm
+                    npm run build --unsafe-perm
                     ls -la
                 '''
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'test -f build/index.html'
             }
         }
     }
