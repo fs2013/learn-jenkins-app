@@ -10,15 +10,13 @@ pipeline {
                 }
             }
             environment {
-                NPM_CONFIG_CACHE = '/var/jenkins/workspace/learn-jenkins-app/npm-cache' // Set a custom npm cache directory
+                NPM_CONFIG_CACHE = '/var/jenkins/workspace/learn-jenkins-app/npm-cache' // Custom npm cache directory
+                NODE_OPTIONS = '--openssl-legacy-provider' // Use legacy OpenSSL provider
             }
             steps {
                 sh '''
                     # Create and fix permissions for npm cache directory
                     mkdir -p $NPM_CONFIG_CACHE && chown -R $(id -u):$(id -g) $NPM_CONFIG_CACHE
-
-                    # Display directory contents
-                    ls -la
 
                     # Verify Node.js and npm versions
                     node --version
@@ -29,7 +27,7 @@ pipeline {
                     npm run build --unsafe-perm
 
                     # Display build output
-                    ls -la
+                    ls -la build/
                 '''
             }
         }
@@ -42,7 +40,7 @@ pipeline {
                 }
             }
             environment {
-                NPM_CONFIG_CACHE = '/var/jenkins/workspace/learn-jenkins-app/npm-cache' // Set a custom npm cache directory
+                NPM_CONFIG_CACHE = '/var/jenkins/workspace/learn-jenkins-app/npm-cache' // Custom npm cache directory
             }
             steps {
                 sh '''
