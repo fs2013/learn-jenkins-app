@@ -10,7 +10,7 @@ pipeline {
                 }
             }
             environment {
-                NPM_CONFIG_CACHE = '/var/jenkins/npm-cache' // Set a custom npm cache directory
+                NPM_CONFIG_CACHE = '/var/jenkins/workspace/learn-jenkins-app/npm-cache' // Set a custom npm cache directory
             }
             steps {
                 sh '''
@@ -42,7 +42,7 @@ pipeline {
                 }
             }
             environment {
-                NPM_CONFIG_CACHE = '/var/jenkins/npm-cache' // Set a custom npm cache directory
+                NPM_CONFIG_CACHE = '/var/jenkins/workspace/learn-jenkins-app/npm-cache' // Set a custom npm cache directory
             }
             steps {
                 sh '''
