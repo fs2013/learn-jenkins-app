@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh '''
                     # Create and fix permissions for npm cache directory
-                    mkdir -p $NPM_CONFIG_CACHE && sudo chown -R $(id -u):$(id -g) $NPM_CONFIG_CACHE
+                    mkdir -p $NPM_CONFIG_CACHE && chown -R $(id -u):$(id -g) $NPM_CONFIG_CACHE
 
                     # Display directory contents
                     ls -la
@@ -47,7 +47,7 @@ pipeline {
             steps {
                 sh '''
                     # Create and fix permissions for npm cache directory
-                    mkdir -p $NPM_CONFIG_CACHE && sudo chown -R $(id -u):$(id -g) $NPM_CONFIG_CACHE
+                    mkdir -p $NPM_CONFIG_CACHE && chown -R $(id -u):$(id -g) $NPM_CONFIG_CACHE
 
                     # Verify test artifacts exist
                     test -f build/index.html
