@@ -11,7 +11,6 @@ pipeline {
             }
             environment {
                 NPM_CONFIG_CACHE = '/var/jenkins/workspace/learn-jenkins-app/npm-cache' // Custom npm cache directory
-                NODE_OPTIONS = '--openssl-legacy-provider' // Use legacy OpenSSL provider
             }
             steps {
                 sh '''
