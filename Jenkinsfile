@@ -9,10 +9,13 @@ pipeline {
                     reuseNode true
                 }
             }
+            environment {
+                NPM_CONFIG_CACHE = '/var/jenkins/npm-cache' // Set a custom npm cache directory
+            }
             steps {
                 sh '''
-                    # Fix permissions for .npm cache
-                    mkdir -p ~/.npm && sudo chown -R $(id -u):$(id -g) ~/.npm
+                    # Create and fix permissions for npm cache directory
+                    mkdir -p $NPM_CONFIG_CACHE && sudo chown -R $(id -u):$(id -g) $NPM_CONFIG_CACHE
 
                     # Display directory contents
                     ls -la
@@ -38,10 +41,13 @@ pipeline {
                     reuseNode true
                 }
             }
+            environment {
+                NPM_CONFIG_CACHE = '/var/jenkins/npm-cache' // Set a custom npm cache directory
+            }
             steps {
                 sh '''
-                    # Fix permissions for .npm cache
-                    mkdir -p ~/.npm && sudo chown -R $(id -u):$(id -g) ~/.npm
+                    # Create and fix permissions for npm cache directory
+                    mkdir -p $NPM_CONFIG_CACHE && sudo chown -R $(id -u):$(id -g) $NPM_CONFIG_CACHE
 
                     # Verify test artifacts exist
                     test -f build/index.html
